@@ -14,6 +14,7 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="style.css" />
     <title>Avanti - Loja Online</title>
     <script
@@ -24,7 +25,6 @@
     <script defer src="script.js"></script>
   </head>
   <body>
-    <!-- Topo com cupom -->
     <div
       class="bg-[#005CFF] text-white text-center text-sm py-1 px-2 font-bold"
     >
@@ -40,8 +40,7 @@
       <div
         class="max-w-7xl mx-auto px-4 py-4 flex flex-wrap justify-between lg:flex-nowrap lg:items-center lg:justify-between"
       >
-        <!-- Menu mobile -->
-        <button class="lg:hidden" @click="menuOpen = !menuOpen">
+
           <svg
             width="24"
             height="25"
@@ -77,8 +76,103 @@
               stroke-linecap="round"
             />
           </svg>
-        </button>
+        </button> -->
 
+        <div
+          x-data="{ menuOpen: false }"
+          class="lg:hidden px-4 py-2 bg-white border-b"
+        >
+          <button
+            @click="menuOpen = !menuOpen"
+            class="text-gray-800 focus:outline-none"
+          >
+            <svg
+              x-show="!menuOpen"
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+            <svg
+              x-show="menuOpen"
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+
+          <div
+            x-show="menuOpen"
+            x-transition
+            class="fixed inset-0 z-50 bg-white flex flex-col lg:hidden"
+          >
+            <div class="flex items-center justify-between p-4 border-b">
+              <img src="assets/logo.svg" alt="Logo" class="h-8" />
+
+              <button @click="menuOpen = false" class="text-2xl">
+                &times;
+              </button>
+            </div>
+            <div class="flex-1 overflow-y-auto p-6 space-y-6">
+              <a href="#" class="block text-lg font-medium text-gray-700"
+                >Departamento 1</a
+              >
+              <a href="#" class="block text-lg font-medium text-gray-700"
+                >Departamento 2</a
+              >
+
+              <!-- Dropdown Mobile -->
+              <div x-data="{ open: false }">
+                <button
+                  @click="open = !open"
+                  class="w-full flex justify-between items-center text-lg font-medium text-gray-700"
+                >
+                  Todas as Categorias
+                  <svg
+                    class="w-4 h-4 ml-2 transform"
+                    :class="{ 'rotate-180': open }"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                </button>
+                <div
+                  x-show="open"
+                  x-transition
+                  class="mt-2 pl-4 flex flex-col space-y-2 text-gray-600 text-base"
+                >
+                  <a href="#">Categoria 1</a>
+                  <a href="#">Categoria 2</a>
+                  <a href="#">Categoria 3</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <!-- Logo -->
         <div class="flex items-center flex-shrink-0">
           <img src="/assets/logo.svg" alt="Logo Avanti" class="h-7" />
@@ -241,7 +335,9 @@
                 x-show="open"
                 x-transition
               >
-                <div class="max-w-7xl mx-auto px-10 py-6 grid grid-cols-5 gap-6">
+                <div
+                  class="max-w-7xl mx-auto px-10 py-6 grid grid-cols-5 gap-6"
+                >
                   <!-- Coluna 1 -->
                   <div>
                     <h4 class="font-bold text-blue-600 mb-2">Departamento</h4>
@@ -296,8 +392,14 @@
                   </div>
                   <!-- Banner -->
                   <div class="relative">
-                    <img src="assets/banner-cup-dropdown.png" alt="promo" class="rounded shadow">
-                    <button class="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-transparent text-white border border-white px-4 py-2 rounded-lg text-xs hover:bg-white hover:text-black">
+                    <img
+                      src="assets/banner-cup-dropdown.png"
+                      alt="promo"
+                      class="rounded shadow"
+                    />
+                    <button
+                      class="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-transparent text-white border border-white px-4 py-2 rounded-lg text-xs hover:bg-white hover:text-black"
+                    >
                       VER TODOS
                     </button>
                   </div>
@@ -316,14 +418,14 @@
           </ul>
 
           <!-- Menu Mobile Principal -->
-          <div x-show="menuOpen" class="lg:hidden py-4 space-y-2">
+          <!-- <div x-show="menuOpen" class="lg:hidden py-4 space-y-2">
             <button
               @click="menuOpen = !menuOpen"
               class="block w-full text-left"
             >
               Todas as Categorias
             </button>
-          </div>
+          </div> -->
         </div>
       </nav>
     </header>
