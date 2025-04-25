@@ -206,7 +206,12 @@
         <div class="max-w-7xl mx-auto px-4">
           <ul class="hidden lg:flex space-x-6 text-sm justify-between">
             <!-- Dropdown -->
-            <li class="relative" x-data="{ open: false }">
+            <li
+              class="relative group"
+              x-data="{ open: false }"
+              @mouseenter="open = true"
+              @mouseleave="open = false"
+            >
               <button
                 class="flex items-center space-x-2 py-4 text-black font-medium lg:cursor-pointer"
                 @mouseenter="open = true"
@@ -232,22 +237,22 @@
 
               <!-- Mega Dropdown -->
               <div
-                class="absolute left-0 top-full w-screen bg-white shadow-xl z-50 border-t border-gray-100"
+                class="absolute inset-x-0 top-full w-screen bg-white shadow-xl z-50 border-t border-gray-100"
                 x-show="open"
                 x-transition
               >
-                <div class="max-w-7xl mx-auto px-6 py-6 grid grid-cols-5 gap-6">
+                <div class="max-w-7xl mx-auto px-10 py-6 grid grid-cols-5 gap-6">
                   <!-- Coluna 1 -->
                   <div>
                     <h4 class="font-bold text-blue-600 mb-2">Departamento</h4>
                     <ul class="space-y-1 text-sm">
-                      <li>Departamento ></li>
-                      <li>Departamento ></li>
-                      <li>Departamento ></li>
-                      <li>Departamento ></li>
-                      <li>Departamento ></li>
-                      <li>Departamento ></li>
-                      <li>Departamento ></li>
+                      <li>Departamento</li>
+                      <li>Departamento</li>
+                      <li>Departamento</li>
+                      <li>Departamento</li>
+                      <li>Departamento</li>
+                      <li>Departamento</li>
+                      <li>Departamento</li>
                     </ul>
                   </div>
                   <!-- Coluna 2 -->
@@ -290,15 +295,9 @@
                     </ul>
                   </div>
                   <!-- Banner -->
-                  <div class="flex flex-col items-center text-center">
-                    <img
-                      src="assets/banner-cup-2.png"
-                      alt="promo"
-                      class="rounded shadow mb-4"
-                    />
-                    <button
-                      class="px-4 py-2 border border-gray-500 text-gray-700 rounded hover:bg-gray-100 text-sm"
-                    >
+                  <div class="relative">
+                    <img src="assets/banner-cup-dropdown.png" alt="promo" class="rounded shadow">
+                    <button class="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-transparent text-white border border-white px-4 py-2 rounded-lg text-xs hover:bg-white hover:text-black">
                       VER TODOS
                     </button>
                   </div>
