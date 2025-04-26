@@ -13,6 +13,7 @@
 - <a href="https://developer.mozilla.org/pt-BR/docs/Web/HTML" target="_blank">HTML</a>
 - <a href="https://developer.mozilla.org/pt-BR/docs/Web/CSS" target="_blank">CSS</a>
 - <a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript" target="_blank">Javascript</a>
+- <a href="https://tailwindcss.com/" target="_blank">Tailwind CSS</a>
 
 
 <h2>👩🏽‍💻 Author</h2>
