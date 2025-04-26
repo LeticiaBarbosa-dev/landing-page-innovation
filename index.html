@@ -14,7 +14,6 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="style.css" />
     <title>Avanti - Loja Online</title>
     <script
@@ -23,6 +22,7 @@
     ></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="script.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   </head>
   <body>
     <div
@@ -40,44 +40,6 @@
       <div
         class="max-w-7xl mx-auto px-4 py-4 flex flex-wrap justify-between lg:flex-nowrap lg:items-center lg:justify-between"
       >
-
-          <svg
-            width="24"
-            height="25"
-            viewBox="0 0 24 25"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <line
-              x1="1"
-              y1="12.4998"
-              x2="22.7185"
-              y2="12.4998"
-              stroke="black"
-              stroke-width="2"
-              stroke-linecap="round"
-            />
-            <line
-              x1="1"
-              y1="23.1921"
-              x2="22.7185"
-              y2="23.1921"
-              stroke="black"
-              stroke-width="2"
-              stroke-linecap="round"
-            />
-            <line
-              x1="1"
-              y1="1.80762"
-              x2="22.7185"
-              y2="1.80762"
-              stroke="black"
-              stroke-width="2"
-              stroke-linecap="round"
-            />
-          </svg>
-        </button> -->
-
         <div
           x-data="{ menuOpen: false }"
           class="lg:hidden px-4 py-2 bg-white border-b"
@@ -126,7 +88,7 @@
             <div class="flex items-center justify-between p-4 border-b">
               <img src="assets/logo.svg" alt="Logo" class="h-8" />
 
-              <button @click="menuOpen = false" class="text-2xl">
+              <button @click="menuOpen = false" class="text-2xl lg:hidden">
                 &times;
               </button>
             </div>
@@ -138,7 +100,6 @@
                 >Departamento 2</a
               >
 
-              <!-- Dropdown Mobile -->
               <div x-data="{ open: false }">
                 <button
                   @click="open = !open"
@@ -173,12 +134,11 @@
             </div>
           </div>
         </div>
-        <!-- Logo -->
+
         <div class="flex items-center flex-shrink-0">
           <img src="/assets/logo.svg" alt="Logo Avanti" class="h-7" />
         </div>
 
-        <!-- Icone mobile -->
         <div class="relative lg:hidden">
           <div class="text-xl">
             <svg
@@ -208,7 +168,7 @@
             >2</span
           >
         </div>
-        <!-- Barra de pesquisa -->
+
         <div class="w-full lg:w-1/2 order-3 lg:order-none mt-4 lg:mt-0">
           <div class="relative flex items-center overflow-hidden w-full">
             <input
@@ -239,7 +199,6 @@
           <div id="searchResult" class="text-sm text-gray-700 mt-2"></div>
         </div>
 
-        <!-- Ícones desktop -->
         <div
           class="hidden lg:flex items-center items-center text-sm text-center gap-6"
         >
@@ -295,11 +254,9 @@
         </div>
       </div>
 
-      <!-- Navegação -->
       <nav class="bg-white border-t lg:border-none">
         <div class="max-w-7xl mx-auto px-4">
           <ul class="hidden lg:flex space-x-6 text-sm justify-between">
-            <!-- Dropdown -->
             <li
               class="relative group"
               x-data="{ open: false }"
@@ -416,16 +373,6 @@
             <li><a href="#" class="py-4 block">Departamento</a></li>
             <li><a href="#" class="py-4 block">Departamento</a></li>
           </ul>
-
-          <!-- Menu Mobile Principal -->
-          <!-- <div x-show="menuOpen" class="lg:hidden py-4 space-y-2">
-            <button
-              @click="menuOpen = !menuOpen"
-              class="block w-full text-left"
-            >
-              Todas as Categorias
-            </button>
-          </div> -->
         </div>
       </nav>
     </header>
